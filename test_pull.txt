@@ -1,2 +1,10 @@
+<<<<<<< branche5
 commit 1
-commit2
+commit 2
+commit 3
+commit 4
+=======
+test
+test2
+test3
+>>>>>>> master
