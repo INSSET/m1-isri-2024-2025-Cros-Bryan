@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire</title>
+</head>
+<body>
+    <form id="form">
+        <label for="name">Nom:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="firstname">Prénom:</label>
+        <input type="text" id="firstname" name="firstname" required>
+        <button type="submit" id="submit">Soumettre</button>
+    </form>
+    <div id="error-message" style="color: red; display: none;"></div>
+    <ul id="success-list"></ul>
+
+    <script>
+        const form = document.getElementById('form');
+        const errorMessage = document.getElementById('error-message');
+        const successList = document.getElementById('success-list');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value.trim();
+            const firstname = document.getElementById('firstname').value.trim();
+
+            errorMessage.style.display = 'none';
+
+            if (!name) {
+                errorMessage.textContent = 'Le nom est requis';
+                errorMessage.style.display = 'block';
+                return;
+            }
+
+            const listItem = document.createElement('li');
+            listItem.textContent = `${name}, ${firstname}`;
+            successList.appendChild(listItem);
+
+            form.reset();
+        });
+    </script>
+</body>
+</html>
