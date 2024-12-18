@@ -3,7 +3,7 @@ name: Run End-to-End Tests
 on:
   push:
     branches:
-      - main
+      - EndToEnd
 
 jobs:
   test:
